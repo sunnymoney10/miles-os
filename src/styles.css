@@ -1,0 +1,201 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Miles OS design system — "studio sketchbook".
+ * Warm paper, deep ink, and three phase colors that map to the core promise:
+ *   wonder  -> "What if?"
+ *   explore -> "Let's find out"
+ *   show    -> "Look what I did!"
+ * All colors are oklch tokens; components only use semantic utilities.
+ */
+
+@theme inline {
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-spark: var(--spark);
+  --color-spark-foreground: var(--spark-foreground);
+  --color-wonder: var(--wonder);
+  --color-wonder-soft: var(--wonder-soft);
+  --color-explore: var(--explore);
+  --color-explore-soft: var(--explore-soft);
+  --color-show: var(--show);
+  --color-show-soft: var(--show-soft);
+  --color-notice: var(--notice);
+  --color-notice-foreground: var(--notice-foreground);
+  --color-paper: var(--paper);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --shadow-card: var(--shadow-card-value);
+  --shadow-lift: var(--shadow-lift-value);
+}
+
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.975 0.013 85);
+  --paper: oklch(0.992 0.007 85);
+  --foreground: oklch(0.25 0.035 230);
+  --card: oklch(0.993 0.006 85);
+  --card-foreground: oklch(0.25 0.035 230);
+  --popover: oklch(0.993 0.006 85);
+  --popover-foreground: oklch(0.25 0.035 230);
+  --primary: oklch(0.36 0.07 215);
+  --primary-foreground: oklch(0.985 0.008 85);
+  --secondary: oklch(0.93 0.02 80);
+  --secondary-foreground: oklch(0.3 0.04 230);
+  --muted: oklch(0.945 0.014 80);
+  --muted-foreground: oklch(0.47 0.03 230);
+  --accent: oklch(0.93 0.035 70);
+  --accent-foreground: oklch(0.3 0.05 50);
+  --spark: oklch(0.68 0.17 45);
+  --spark-foreground: oklch(0.99 0.01 80);
+  --wonder: oklch(0.55 0.11 245);
+  --wonder-soft: oklch(0.94 0.03 245);
+  --explore: oklch(0.52 0.11 150);
+  --explore-soft: oklch(0.94 0.04 150);
+  --show: oklch(0.6 0.14 65);
+  --show-soft: oklch(0.95 0.05 80);
+  --notice: oklch(0.95 0.04 95);
+  --notice-foreground: oklch(0.35 0.06 70);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.985 0.008 85);
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.86 0.02 80);
+  --ring: oklch(0.55 0.11 215);
+  --shadow-card-value: 0 1px 0 oklch(0.85 0.02 80), 0 8px 24px -16px oklch(0.3 0.04 230 / 0.25);
+  --shadow-lift-value: 0 2px 0 oklch(0.82 0.03 70), 0 18px 40px -20px oklch(0.3 0.05 230 / 0.35);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.97 0.012 85);
+  --sidebar-foreground: oklch(0.25 0.035 230);
+  --sidebar-primary: oklch(0.36 0.07 215);
+  --sidebar-primary-foreground: oklch(0.985 0.008 85);
+  --sidebar-accent: oklch(0.93 0.035 70);
+  --sidebar-accent-foreground: oklch(0.3 0.05 50);
+  --sidebar-border: oklch(0.88 0.02 80);
+  --sidebar-ring: oklch(0.55 0.11 215);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+@utility paper-grain {
+  background-color: var(--color-background);
+  background-image: radial-gradient(oklch(0.3 0.04 230 / 0.045) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+@utility sketch-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+}
+
+@utility ink-underline {
+  background-image: linear-gradient(transparent 62%, color-mix(in oklab, var(--color-spark) 35%, transparent) 62%);
+}
+
+@utility skip-link {
+  position: absolute;
+  left: -999px;
+  &:focus {
+    left: 1rem;
+    top: 1rem;
+    z-index: 100;
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Google sign-in button: Google's branding guidelines mandate these exact light-theme colors. */
+@utility google-button {
+  background-color: #ffffff;
+  border: 1px solid #747775;
+  color: #1f1f1f;
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}
